@@ -1,0 +1,85 @@
+@use '../variables';
+
+$block: '.#{variables.$ns}colors-grid';
+
+#{$block} {
+    --yc-color-size: 28px;
+    --yc-color-icon-size: 12px;
+    --yc-color-gap: 1px;
+
+    width: min-content;
+    display: grid;
+    grid-template-columns: repeat(var(--cols-num), 1fr);
+    gap: var(--yc-color-gap);
+    border-radius: 8px;
+    box-shadow: 0px 2px 52px 0px var(--g-color-sfx-shadow);
+    padding: 12px;
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--yc-color-size);
+        height: var(--yc-color-size);
+        border-radius: 1px;
+        box-sizing: border-box;
+
+        &_active {
+            outline: 1px solid var(--g-color-line-focus);
+            outline-offset: 1px;
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        &_void {
+            border: 1px solid var(--g-color-line-generic-solid);
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 150%;
+                height: 2px;
+                background-color: var(--g-color-line-danger);
+                transform: rotate(-45deg);
+            }
+        }
+
+        &[role='button'] {
+            &:hover,
+            &:focus-visible {
+                outline: 1px solid var(--g-color-line-focus);
+                outline-offset: 0px;
+                z-index: 1;
+            }
+        }
+    }
+
+    &__check {
+        width: var(--yc-color-icon-size);
+        height: var(--yc-color-icon-size);
+        z-index: 1;
+    }
+
+    &_size {
+        &_s {
+            --yc-color-size: 24px;
+            --yc-color-icon-size: 12px;
+            --yc-color-gap: 1px;
+        }
+
+        &_m {
+            --yc-color-size: 28px;
+            --yc-color-icon-size: 14px;
+            --yc-color-gap: 1px;
+        }
+
+        &_l {
+            --yc-color-size: 36px;
+            --yc-color-icon-size: 16px;
+            --yc-color-gap: 2px;
+        }
+    }
+}
