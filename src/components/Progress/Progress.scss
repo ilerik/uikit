@@ -31,10 +31,9 @@ $progress-xs-height: 4px;
 
     text-align: center;
 
-    --_--flow-direction: 1;
-
+    --_--translate-direction: 1;
     [dir='rtl'] & {
-        --_--flow-direction: -1;
+        --_--translate-direction: -1;
     }
 
     &__text {
