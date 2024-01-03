@@ -7,12 +7,14 @@ export interface ThemeContextProps {
     theme: Theme;
     themeValue: RealTheme;
     direction: Direction;
+    default: boolean;
 }
 
 const initialValue: ThemeContextProps = {
     theme: DEFAULT_THEME,
     themeValue: DEFAULT_LIGHT_THEME,
     direction: DEFAULT_DIRECTION,
+    default: true,
 };
 
 export const ThemeContext = React.createContext(initialValue);
